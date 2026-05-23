@@ -1,0 +1,12 @@
+
+
+#Maven
+target/
+
+#java
+*.jar
+*.war
+*.class
+
+#logs
+*.log
