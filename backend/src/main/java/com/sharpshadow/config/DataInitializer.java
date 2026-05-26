@@ -4,20 +4,26 @@ import com.sharpshadow.entity.Category;
 import com.sharpshadow.entity.User;
 import com.sharpshadow.repository.CategoryRepository;
 import com.sharpshadow.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-@RequiredArgsConstructor
-@Slf4j
 public class DataInitializer implements CommandLineRunner {
+
+    private static final Logger log = LoggerFactory.getLogger(DataInitializer.class);
 
     private final CategoryRepository categoryRepository;
     private final UserRepository userRepository;
+
+    public DataInitializer(CategoryRepository categoryRepository, UserRepository userRepository) {
+        this.categoryRepository = categoryRepository;
+        this.userRepository = userRepository;
+    }
 
     @Override
     public void run(String... args) {
